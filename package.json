@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:book": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group book --spec \"cypress/e2e/book.cy.js\" --ci-build-id 1",
+    "test:login": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group login --spec \"cypress/e2e/login.cy.js\" --ci-build-id 1",
+    "test:enter": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group enter --spec \"cypress/e2e/enter.cy.js\" --ci-build-id 1",
+    "test:parallel": "run-p -c test:book test:login test:enter"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.2.0"
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "cypress": "^13.3.0"
   }
 }
