@@ -1,7 +1,8 @@
 [
-    {  
-      "login": "qamid@qamid.ru",
-      "password": "qamid" ,
-      "wrongpassword": "wrongpassword"
-    } 
-  ]
+  {  
+    "login": "qamid@qamid.ru",
+    "password": "qamid" ,
+    "wrongpassword": "wrongpassword",
+    "wrongemail": "qamid1@qamid.ru"
+  } 
+]

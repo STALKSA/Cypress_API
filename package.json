@@ -4,10 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:book": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group book --spec \"cypress/e2e/book.cy.js\" --ci-build-id 1",
-    "test:login": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group login --spec \"cypress/e2e/login.cy.js\" --ci-build-id 1",
-    "test:enter": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group enter --spec \"cypress/e2e/enter.cy.js\" --ci-build-id 1",
-    "test:parallel": "run-p -c test:book test:login test:enter"
+
+    "test:enter:chrome": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group main --spec \"cypress/e2e/enter/**/*\" --ci-build-id 5 --browser chrome",
+    "test:login:chrome": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group login --spec \"cypress/e2e/login/**/*\" --ci-build-id 5  --browser chrome",
+    "test:booking:chrome": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group booking --spec \"cypress/e2e/booking/**/*\" --ci-build-id 5 --browser chrome",
+    "test:parallel:chrome": "run-p -c test:enter:chrome test:login:chrome test:booking:chrome",
+
+    "test:enter:firefox": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group enter --spec \"cypress/e2e/enter/**/*\" --ci-build-id 4 --browser firefox",
+    "test:login:firefox": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group login --spec \"cypress/e2e/login/**/*\" --ci-build-id 4 --browser firefox",
+    "test:booking:firefox": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group booking --spec \"cypress/e2e/booking/**/*\" --ci-build-id 4 --browser firefox",
+    "test:parallel:firefox": "run-p -c test:enter:firefox test:login:firefox test:booking:firefox",
+
+    "test:enter:electron": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group enter --spec \"cypress/e2e/enter/**/*\" --ci-build-id 4 --browser electron",
+    "test:login:electron": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group login --spec \"cypress/e2e/login/**/*\" --ci-build-id 4 --browser electron",
+    "test:booking:electron": "npx cypress run --record --key 70e8840b-3538-4886-8d17-cdbee589829d --group booking --spec \"cypress/e2e/booking/**/*\" --ci-build-id 4 --browser electron",
+    "test:parallel:electron": "run-p -c test:enter:electron test:login:electron test:booking:electron"
+
+
+
   },
   "author": "",
   "license": "ISC",

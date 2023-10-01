@@ -1,8 +1,9 @@
-import tests from "../fixtures/loginData.json"
-import selectors from "../fixtures/selectors.json"
-import seats from "../fixtures/seats.json"
+import tests from "../../fixtures/loginData.json"
+import selectors from "../../fixtures/selectors.json"
+import seats from "../../fixtures/seats.json"
 
-describe("Bookong tickets", () => {
+
+describe("Booking tickets in another day", () => {
     it("Booking ticket for available film", () => {
         cy.visit("/admin");
         tests.forEach((test) => {
@@ -12,7 +13,7 @@ describe("Bookong tickets", () => {
             cy.get(selector.film).last().then(($el) => {
                 const filmTitle = $el.text();
                 cy.visit("/");
-                cy.get(selector.week).last().click();
+                cy.get(selector.week).eq(5).click();
                 cy.contains(filmTitle)
                 .parents(selector.movie)
                 .get(selector.seans)

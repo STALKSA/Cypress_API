@@ -25,27 +25,27 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (email, password) => {
-    if (email) {
-      cy.get('[for="email"] > .login__input').type(email);
-    }
-    if (password) {
-      cy.get('[for="pwd"] > .login__input').type(password);
-    }
-    cy.contains("Авторизоваться").click();
-  });
+  if (email) {
+    cy.get('[for="email"] > .login__input').type(email);
+  }
+  if (password) {
+    cy.get('[for="pwd"] > .login__input').type(password);
+  }
+  cy.contains("Авторизоваться").click();
+});
 
-  Cypress.Commands.add("validation", (selector) => {
-    cy.get(selector)
-      .then((element) => {
-        return element[0].checkValidity();
-      })
-      .should("be.false");
-  });
-  
-  Cypress.Commands.add("validationMessage", (selector, message) => {
-    cy.get(selector)
-      .then((element) => {
-        return element[0].validationMessage;
-      })
-      .should("contain", message);
-  });
+Cypress.Commands.add("validation", (selector) => {
+  cy.get(selector)
+    .then((element) => {
+      return element[0].checkValidity();
+    })
+    .should("be.false");
+});
+
+Cypress.Commands.add("validationMessage", (selector, message) => {
+  cy.get(selector)
+    .then((element) => {
+      return element[0].validationMessage;
+    })
+    .should("contain", message);
+});
